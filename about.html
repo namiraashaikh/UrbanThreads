@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Urban Threads | Modern Fashion for All</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <!-- AOS Library (Animate On Scroll) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    
+    
+    :root {
+      --primary-color: hsl(282, 44%, 47%);
+      --accent-color: #27ae60;
+      --highlight-color: #FF5733;
+      --title-color: hsl(0, 0%, 13%);
+      --body-text-color: #2D2D2D;
+      --light-text: #FFFFFF;
+      --body-bg: hsl(0, 0%, 100%);
+      --container-bg: hsl(0, 0%, 93%);
+      --primary-border: hsl(129, 36%, 85%);
+      --alt-border: hsl(113, 15%, 90%);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--body-bg);
+      color: var(--body-text-color);
+      line-height: 1.6;
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    ul {
+      list-style: none;
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    
+/* Navbar */
+.navbar {
+    width: 100%;
+    padding: 15px 30px;
+    background-color: var(--body-bg);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Logo */
+.logo img {
+    height: 20px;
+    width: auto;
+}
+
+/* Navbar Container */
+.navbar-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+/* Menu */
+.menu {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.menu-item {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.menu-item:hover {
+    color: var(--highlight-color);
+}
+
+/* Underline effect */
+.menu-item::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--highlight-color);
+    transition: width 0.3s;
+}
+
+.menu-item:hover::after {
+    width: 100%;
+}
+
+/* Icons */
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.icon {
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.icon:hover {
+    color: var(--highlight-color);
+}
+
+/* Cart Icon */
+.cart-icon {
+    position: relative;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: var(--highlight-color);
+    color: var(--light-text);
+    font-size: 0.7rem;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Mobile Menu Button */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: var(--text-color);
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+/* Responsive Navbar */
+        /* Mobile Menu Button */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 22px;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: #000;  /* Black color */
+            transition: transform 0.3s, opacity 0.3s, background-color 0.3s;
+        }
+
+        /* Hover effect */
+        .menu-toggle:hover span {
+            background-color: #FF6B35;  /* Orange highlight on hover */
+        }
+
+        /* Active state for X icon when menu is open */
+        .menu-active .menu-toggle span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .menu-active .menu-toggle span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-active .menu-toggle span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+        /* Terms & Conditions Section */
+.terms-section {
+    padding: 4rem 1rem;
+    text-align: center;
+    background: #f9f9f9;
+}
+
+.terms-section h2 {
+    font-size: 2.5rem;
+    color: #2D2D2D;
+}
+
+.terms-intro {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+/* Accordion */
+.accordion {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Accordion Item */
+.accordion-item {
+    background: white;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease-in-out;
+}
+
+.accordion-item:hover {
+    transform: translateY(-5px);
+}
+
+/* Accordion Header */
+.accordion-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.accordion-header i {
+    font-size: 1.5rem;
+    color: #FF5733;
+}
+
+/* Accordion Content */
+.accordion-content {
+    display: none;
+    padding-top: 1rem;
+    font-size: 1rem;
+    color: #555;
+}
+
+.accordion-content ul {
+    list-style: inside;
+    text-align: left;
+}
+
+.accordion-content ul li {
+    margin-bottom: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .terms-section h2 {
+        font-size: 2rem;
+    }
+
+    .accordion-header h3 {
+        font-size: 1.2rem;
+    }
+
+    .accordion-header i {
+        font-size: 1.2rem;
+    }
+
+    .accordion-content {
+        font-size: 0.9rem;
+    }
+}
+/* FAQ Section */
+.faq-section {
+    padding: 4rem 1rem;
+    background: var(--bg-color);
+    text-align: center;
+}
+
+.faq-section h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+/* FAQ Container */
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+/* FAQ Item */
+.faq-item {
+    background: var(--white);
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.faq-item:hover {
+    transform: translateY(-3px);
+}
+
+/* FAQ Header */
+.faq-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* FAQ Title with Icon */
+.faq-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Icons */
+.faq-title i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+/* Dropdown Icon */
+.faq-header i.fa-chevron-down {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* FAQ Content */
+.faq-content {
+    display: none;
+    padding-top: 0.5rem;
+    font-size: 1rem;
+    color: var(--text-color);
+    border-top: 1px solid var(--primary-color);
+    margin-top: 0.5rem;
+    padding-top: 1rem;
+}
+            /* Newsletter */
+    .newsletter {
+      padding: 5rem 0;
+      background-color: var(--body-text-color);
+      color: var(--light-text);
+      text-align: center;
+    }
+    
+    .newsletter-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    
+    .newsletter-text {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+    
+    .newsletter-form {
+      display: flex;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    .newsletter-input {
+      flex: 1;
+      padding: 1rem 1.5rem;
+      border: none;
+      border-radius: 30px 0 0 30px;
+      font-family: 'Poppins', sans-serif;
+      outline: none;
+    }
+    
+    .newsletter-btn {
+      padding: 1rem 1.5rem;
+      background-color: var(--accent-color);
+      color: var(--light-text);
+      border: none;
+      border-radius: 0 30px 30px 0;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .newsletter-btn:hover {
+      background-color: #e74e2e;
+    }
+        
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .trust-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .lookbook-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .footer-container {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      
+      .menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--body-bg);
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1rem;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      }
+      
+      .menu.active {
+        display: flex;
+      }
+      
+      .menu-toggle {
+        display: flex;
+      }
+      
+      .search-container {
+        display: none;
+      }
+      
+      .lookbook-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .newsletter-form {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .newsletter-input, 
+      .newsletter-btn {
+        border-radius: 30px;
+        width: 100%;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .trust-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero-content {
+        text-align: center;
+        margin-left: 0;
+        padding: 0 1rem;
+      }
+    }
+    /* Footer */
+.footer {
+  padding: 4rem 0 2rem;
+  background-color: var(--title-color);
+  color: var(--light-text);
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Flexbox for Footer Content */
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1100px;
+  gap: 3rem;
+}
+
+.footer-info {
+  flex: 1;
+  max-width: 50%;
+}
+
+.footer-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--light-text);
+}
+
+.footer-about {
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.footer-social {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+}
+
+.social-icon:hover {
+  background-color: var(--highlight-color);
+}
+
+.footer-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.footer-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background-color: var(--highlight-color);
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.footer-link {
+  transition: color 0.3s;
+}
+
+.footer-link:hover {
+  color: var(--highlight-color);
+}
+
+.copyright {
+  margin-top: 3rem;
+  text-align: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.9rem;
+  width: 100%;
+}
+/* Hero Section */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full viewport height */
+    text-align: center;
+    color: var(--light-text);
+    background: url('images/abouthero.jpg') no-repeat center center/cover;
+    padding: 2rem;
+    position: relative;
+}
+
+/* Overlay effect for better readability */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+}
+
+/* Ensures text is above overlay */
+.hero h1,
+.hero p {
+    position: relative;
+    z-index: 1;
+}
+
+/* Hero Text */
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+/* Mission & Values */
+.values-section {
+    font-size: 1.7rem;
+    text-align: center;
+    padding: 4rem 1rem;
+    background: white; /* Light background for consistency */
+}
+
+/* Green underline under the heading */
+.values-section h1 {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+
+.underline {
+    width: 100px;
+    height: 4px;
+    background-color: #27ae60; /* Green */
+    margin: 0.5rem auto 2rem;
+    border-radius: 2px;
+}
+
+/* Values container */
+.values-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+/* Value cards */
+.value-card {
+    background: #FF5733; /* Primary Card Color */
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    width: 300px;
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+
+/* Hover effect */
+.value-card:hover {
+    transform: translateY(-10px);
+    background: #2D2D2D; /* Dark hover background */
+}
+
+/* Icons */
+.value-card i {
+    font-size: 2.5rem;
+    color: white; /* White by default */
+    margin-bottom: 1rem;
+}
+
+/* Text */
+.value-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.value-card p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+/* Our Story Section */
+.our-story {
+    padding: 5rem 2rem;
+    background-color: hsl(0, 0%, 96%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container */
+.story-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    width: 100%;
+    align-items: center;
+    gap: 3rem;
+}
+
+/* Left Side: Image */
+.story-image {
+    flex: 1;
+    text-align: center;
+}
+
+.story-image img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Right Side: Text */
+.story-text {
+    flex: 1;
+    text-align: left;
+}
+
+.story-text h2 {
+    font-size: 2.5rem;
+    color: #2D2D2D;
+}
+
+/* Our Story Underline Fix */
+.story-text .underline {
+    margin-left: 0; /* Aligns underline to left */
+}
+
+
+.story-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .story-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .story-text {
+        text-align: center;
+    }
+}
+
+    /* Terms & Conditions Section */
+.terms-section {
+    padding: 4rem 1rem;
+    background: #f9f9f9;
+    text-align: center;
+}
+
+.terms-section h2,
+.faq-section h2 {
+    font-size: 2.5rem;
+    color: #2D2D2D;
+    position: relative;
+    display: inline-block;
+}
+
+/* Green Underline */
+.underline {
+    width: 100px;
+    height: 4px;
+    background-color: #27ae60;
+    margin: 0.5rem auto 2rem;
+    border-radius: 2px;
+}
+
+/* Accordion */
+.accordion {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.accordion-item {
+    background: white;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease-in-out;
+}
+
+.accordion-item:hover {
+    background: #27ae60;
+    color: white;
+}
+
+.accordion-item h3 {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.3s ease;
+}
+
+.accordion-item i {
+    font-size: 1.4rem;
+    color: #27ae60;
+}
+
+.accordion-item:hover i {
+    color: white;
+}
+
+/* Accordion Content */
+.accordion-content {
+    display: none;
+    padding-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #555;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+        /* FAQ */
+        .faq-section {
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+
+        .faq {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .faq-item {
+            background: var(--container-bg);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .faq-item h3 {
+            color: #2D2D2D;
+            font-size: 1.2rem;
+            position: relative;
+            text-align: center;
+        }
+
+        .faq-content {
+            display: none;
+            padding-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .values-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+  </style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="container navbar-container">
+      <a href="#" class="logo">
+          <img src="images/Urban Threads Logo.png" alt="Urban Threads Logo" class="logo-img" height="20px">
+      </a>
+
+      <ul class="menu">
+          <li><a href="index.html" class="menu-item">Home</a></li>
+          <li><a href="about.html" class="menu-item">About</a></li>
+          <li><a href="shop.html" class="menu-item">Shop</a></li>
+          <li><a href="contact.html" class="menu-item">Contact</a></li>
+      </ul>
+
+      <!-- Cart Icon -->
+      <div class="cart">
+          <a href="cart.html" class="cart-icon">
+              <i class="fas fa-shopping-cart"></i>
+              <span class="cart-count">0</span>
+          </a>
+      </div>
+
+      <div class="menu-toggle" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+      </div>
+  </div>
+</nav>
+<!-- Hero Section -->
+<div class="hero">
+    <h1>Urban Threads:</h1><h1>Weaving Style, Passion & Purpose</h1>
+    <p>Every Thread Tells a Story – Empowering Style, Inspiring Confidence..</p>
+</div>
+<!-- Our Story Section -->
+<section class="our-story">
+    <div class="story-container">
+        <!-- Left: Image Section -->
+        <div class="story-image" data-aos="fade-right">
+            <img src="images/story.jpg" alt="Urban Threads Journey">
+        </div>
+
+        <!-- Right: Text Section -->
+        <div class="story-text" data-aos="fade-left">
+            <h2>Our Story</h2>
+            <div class="underline"></div>
+            <p>Urban Threads began with a vision—one that transcends trends and seasons, embracing the essence of self-expression through fashion. What started as a small passion project soon blossomed into a brand that celebrates individuality, creativity, and confidence for everyone, regardless of gender or background. We believe that fashion is more than just clothing; it's a powerful statement, a form of self-empowerment, and a way to tell your unique story to the world.</p>
+
+            <p>From the beginning, our journey has been fueled by a commitment to innovation and inclusivity. We traveled across the globe, seeking inspiration from diverse cultures, curating the finest fabrics, and collaborating with some of the most talented designers to create collections that blend international fashion with comfort, affordability, and sustainability. Every piece we design reflects a fusion of modern aesthetics and timeless elegance, ensuring that style is accessible to all.</p>
+
+            <p>We stand for bold self-expression, for breaking stereotypes, and for redefining fashion as a space where everyone belongs. Whether you're dressing up for a special occasion or keeping it casual, Urban Threads is here to make sure you feel your absolute best, every step of the way.</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- Mission & Values -->
+<section class="values-section">
+    <h1>Our Mission & Values</h1>
+    <div class="underline"></div> <!-- Green Underline -->
+    <div class="values-container">
+        <div class="value-card" data-aos="fade-up">
+            <i class="fas fa-globe"></i>
+            <h3>Global Fashion</h3>
+            <p>We bring international styles tailored for the modern world.</p>
+        </div>
+        <div class="value-card" data-aos="fade-up">
+            <i class="fas fa-leaf"></i>
+            <h3>Sustainability</h3>
+            <p>Committed to ethical sourcing and eco-friendly materials.</p>
+        </div>
+        <div class="value-card" data-aos="fade-up">
+            <i class="fas fa-users"></i>
+            <h3>Customer First</h3>
+            <p>Providing quality fashion with excellent customer service.</p>
+        </div>
+        <div class="value-card" data-aos="fade-up">
+            <i class="fas fa-lightbulb"></i>
+            <h3>Innovation</h3>
+            <p>We constantly evolve with new trends and cutting-edge designs.</p>
+        </div>
+    </div>
+</section>
+<!-- Terms & Conditions Section -->
+<section class="terms-section">
+    <h2>Terms & Conditions</h2>    
+    <div class="accordion">
+
+        <!-- Returns & Refunds -->
+        <div class="accordion-item" onclick="toggleAccordion(this)">
+            <div class="accordion-header">
+                <i class="fas fa-undo"></i>
+                <h3>Returns & Refunds</h3>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="accordion-content">
+                <p>We offer a 14-day return policy from the date of delivery. Items must be in original condition, unused, and with all tags intact.</p>
+                <ul>
+                    <li>Refunds are processed within 7 business days after inspection.</li>
+                    <li>Items purchased during sales are non-refundable.</li>
+                    <li>Customers bear the return shipping consistency, except for defective items.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Shipping Policy -->
+        <div class="accordion-item" onclick="toggleAccordion(this)">
+            <div class="accordion-header">
+                <i class="fas fa-truck"></i>
+                <h3>Shipping Policy</h3>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="accordion-content">
+                <p>Orders are processed within 24-48 hours. Delivery timelines depend on location:</p>
+                <ul>
+                    <li>Domestic Shipping: 5-7 business days.</li>
+                    <li>International Shipping: 10-15 business days.</li>
+                    <li>Free shipping on orders above ₹2,999.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Payments & Security -->
+        <div class="accordion-item" onclick="toggleAccordion(this)">
+            <div class="accordion-header">
+                <i class="fas fa-credit-card"></i>
+                <h3>Payments & Security</h3>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="accordion-content">
+                <p>We accept secure payments via:</p>
+                <ul>
+                    <li>Credit/Debit Cards (Visa, MasterCard, RuPay)</li>
+                    <li>UPI & Net Banking</li>
+                    <li>Wallets (Paytm, Google Pay, PhonePe)</li>
+                    <li>Cash on Delivery (COD) available on selected orders.</li>
+                </ul>
+                <p>Your payment details are encrypted and 100% secure.</p>
+            </div>
+        </div>
+
+        <!-- Privacy Policy -->
+        <div class="accordion-item" onclick="toggleAccordion(this)">
+            <div class="accordion-header">
+                <i class="fas fa-user-shield"></i>
+                <h3>Privacy Policy</h3>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="accordion-content">
+                <p>Your data is protected under GDPR & Indian IT Act. We never share your personal information with third parties.</p>
+                <ul>
+                    <li>We collect minimal data for order processing.</li>
+                    <li>You can request data deletion anytime.</li>
+                    <li>All transactions are encrypted.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Intellectual Property -->
+        <div class="accordion-item" onclick="toggleAccordion(this)">
+            <div class="accordion-header">
+                <i class="fas fa-copyright"></i>
+                <h3>Intellectual Property</h3>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="accordion-content">
+                <p>All content on our website, including designs, images, and text, is the property of Urban Threads. Unauthorized use or reproduction is strictly prohibited.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+<section class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-container">
+
+        <!-- FAQ Item 1 -->
+        <div class="faq-item" onclick="toggleFAQ(this)">
+            <div class="faq-header">
+                <div class="faq-title">
+                    <i class="fas fa-tshirt"></i>
+                    <h3>What is Urban Threads?</h3>
+                </div>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-content">
+                <p>Urban Threads is a fashion brand offering trendy and high-quality apparel for everyone. Our collections include tops, bottoms, dresses, and more, designed with modern styles and comfort in mind.</p>
+            </div>
+        </div>
+
+        <!-- FAQ Item 2 -->
+        <div class="faq-item" onclick="toggleFAQ(this)">
+            <div class="faq-header">
+                <div class="faq-title">
+                    <i class="fas fa-credit-card"></i>
+                    <h3>What payment methods do you accept?</h3>
+                </div>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-content">
+                <p>We accept major credit/debit cards, PayPal, UPI, and COD (Cash on Delivery) in select regions.</p>
+            </div>
+        </div>
+
+        <!-- FAQ Item 3 -->
+        <div class="faq-item" onclick="toggleFAQ(this)">
+            <div class="faq-header">
+                <div class="faq-title">
+                    <i class="fas fa-plane"></i>
+                    <h3>Do you offer international shipping?</h3>
+                </div>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-content">
+                <p>Yes! We ship worldwide. Shipping rates and delivery times vary based on location.</p>
+            </div>
+        </div>
+
+        <!-- FAQ Item 4 -->
+        <div class="faq-item" onclick="toggleFAQ(this)">
+            <div class="faq-header">
+                <div class="faq-title">
+                    <i class="fas fa-truck"></i>
+                    <h3>How do I track my order?</h3>
+                </div>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-content">
+                <p>Once your order is shipped, you will receive a tracking number via email. Use this number on our 'Track Order' page to see real-time updates.</p>
+            </div>
+        </div>
+
+        <!-- FAQ Item 5 -->
+        <div class="faq-item" onclick="toggleFAQ(this)">
+            <div class="faq-header">
+                <div class="faq-title">
+                    <i class="fas fa-undo"></i>
+                    <h3>What is your return policy?</h3>
+                </div>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-content">
+                <p>We accept returns within 14 days of delivery. Items must be in original condition with tags. Refunds are processed within 5-7 business days after receiving the return.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+  <!-- Newsletter -->
+  <section class="newsletter">
+    <div class="container">
+      <h2 class="newsletter-title">Join Our Community</h2>
+      <p class="newsletter-text">Sign up for our newsletter and get 10% off your first order, plus access to exclusive offers and style tips.</p>
+      
+      <form class="newsletter-form">
+        <input type="email" class="newsletter-input" placeholder="Your email address">
+        <button type="submit" class="newsletter-btn">Subscribe</button>
+      </form>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <!-- Footer Info & Quick Links in One Row -->
+      <div class="footer-content">
+        <div class="footer-info">
+          <div class="footer-logo">URBAN THREADS</div>
+          <p class="footer-about">
+            Urban Threads is committed to sustainable, stylish fashion designed for the modern individual. 
+            Our collection blends timeless appeal with high-quality craftsmanship, ensuring that every piece 
+            remains a wardrobe essential for years to come.
+          </p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/?" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="https://in.pinterest.com/" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-nav">
+          <h3 class="footer-title">Quick Links</h3>
+          <div class="footer-links">
+            <a href="index.html" class="footer-link">Home</a>
+            <a href="about.html" class="footer-link">About</a>
+            <a href="shop.html" class="footer-link">Shop</a>
+            <a href="contact.html" class="footer-link">Contact Us</a>
+          </div>
+        </div>
+      </div>    
+    </div>
+
+    <div class="copyright">
+      <div class="container">
+        &copy; 2025 Urban Threads. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // Mobile menu toggle
+        const menuToggle = document.querySelector(".menu-toggle");
+        const menu = document.querySelector(".menu");
+
+        menuToggle.addEventListener("click", () => {
+            menu.classList.toggle("active");
+            menuToggle.classList.toggle("menu-active"); // Toggles X animation
+        });
+    });
+    function toggleAccordion(element) {
+    element.querySelector('.accordion-content').classList.toggle('show');
+}
+
+function toggleFAQ(element) {
+    element.querySelector('.faq-content').classList.toggle('show');
+}
+// Toggle Accordion
+function toggleAccordion(item) {
+    let content = item.querySelector(".accordion-content");
+    let icon = item.querySelector(".accordion-header .fa-chevron-down");
+
+    if (content.style.display === "block") {
+        content.style.display = "none";
+        icon.style.transform = "rotate(0deg)";
+    } else {
+        document.querySelectorAll(".accordion-content").forEach(c => c.style.display = "none");
+        document.querySelectorAll(".accordion-header .fa-chevron-down").forEach(i => i.style.transform = "rotate(0deg)");
+        
+        content.style.display = "block";
+        icon.style.transform = "rotate(180deg)";
+    }
+}
+function toggleFAQ(item) {
+    let content = item.querySelector(".faq-content");
+    let icon = item.querySelector(".faq-header i.fa-chevron-down");
+
+    if (content.style.display === "block") {
+        content.style.display = "none";
+        icon.style.transform = "rotate(0deg)";
+    } else {
+        // Close all open FAQs
+        document.querySelectorAll(".faq-content").forEach(c => c.style.display = "none");
+        document.querySelectorAll(".faq-header i.fa-chevron-down").forEach(i => i.style.transform = "rotate(0deg)");
+
+        // Open clicked FAQ
+        content.style.display = "block";
+        icon.style.transform = "rotate(180deg)";
+    }
+}
+
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>AOS.init();</script>
+
+</script>
+
+</body>

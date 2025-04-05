@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Urban Threads | Modern Fashion for All</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <!-- AOS Library (Animate On Scroll) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    
+    
+    :root {
+      --primary-color: hsl(282, 44%, 47%);
+      --accent-color: #27ae60;
+      --highlight-color: #FF5733;
+      --title-color: hsl(0, 0%, 13%);
+      --body-text-color: #2D2D2D;
+      --light-text: #FFFFFF;
+      --body-bg: hsl(0, 0%, 100%);
+      --container-bg: hsl(0, 0%, 93%);
+      --primary-border: hsl(129, 36%, 85%);
+      --alt-border: hsl(113, 15%, 90%);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--body-bg);
+      color: var(--body-text-color);
+      line-height: 1.6;
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    ul {
+      list-style: none;
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    
+/* Navbar */
+.navbar {
+    width: 100%;
+    padding: 15px 30px;
+    background-color: var(--body-bg);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Logo */
+.logo img {
+    height: 20px;
+    width: auto;
+}
+
+/* Navbar Container */
+.navbar-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+/* Menu */
+.menu {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.menu-item {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.menu-item:hover {
+    color: var(--highlight-color);
+}
+
+/* Underline effect */
+.menu-item::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--highlight-color);
+    transition: width 0.3s;
+}
+
+.menu-item:hover::after {
+    width: 100%;
+}
+
+/* Icons */
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.icon {
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.icon:hover {
+    color: var(--highlight-color);
+}
+
+/* Cart Icon */
+.cart-icon {
+    position: relative;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: var(--highlight-color);
+    color: var(--light-text);
+    font-size: 0.7rem;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Mobile Menu Button */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: var(--text-color);
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+/* Responsive Navbar */
+        /* Mobile Menu Button */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 22px;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: #000;  /* Black color */
+            transition: transform 0.3s, opacity 0.3s, background-color 0.3s;
+        }
+
+        /* Hover effect */
+        .menu-toggle:hover span {
+            background-color: #FF6B35;  /* Orange highlight on hover */
+        }
+
+        /* Active state for X icon when menu is open */
+        .menu-active .menu-toggle span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .menu-active .menu-toggle span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-active .menu-toggle span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+            /* Newsletter */
+    .newsletter {
+      padding: 5rem 0;
+      background-color: var(--body-text-color);
+      color: var(--light-text);
+      text-align: center;
+    }
+    
+    .newsletter-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    
+    .newsletter-text {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+    
+    .newsletter-form {
+      display: flex;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    .newsletter-input {
+      flex: 1;
+      padding: 1rem 1.5rem;
+      border: none;
+      border-radius: 30px 0 0 30px;
+      font-family: 'Poppins', sans-serif;
+      outline: none;
+    }
+    
+    .newsletter-btn {
+      padding: 1rem 1.5rem;
+      background-color: var(--accent-color);
+      color: var(--light-text);
+      border: none;
+      border-radius: 0 30px 30px 0;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .newsletter-btn:hover {
+      background-color: #e74e2e;
+    }
+        
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .trust-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .lookbook-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .footer-container {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      
+      .menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--body-bg);
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1rem;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      }
+      
+      .menu.active {
+        display: flex;
+      }
+      
+      .menu-toggle {
+        display: flex;
+      }
+      
+      .search-container {
+        display: none;
+      }
+      
+      .lookbook-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .newsletter-form {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .newsletter-input, 
+      .newsletter-btn {
+        border-radius: 30px;
+        width: 100%;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .trust-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero-content {
+        text-align: center;
+        margin-left: 0;
+        padding: 0 1rem;
+      }
+    }
+    /* Footer */
+.footer {
+  padding: 4rem 0 2rem;
+  background-color: var(--title-color);
+  color: var(--light-text);
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Flexbox for Footer Content */
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1100px;
+  gap: 3rem;
+}
+
+.footer-info {
+  flex: 1;
+  max-width: 50%;
+}
+
+.footer-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--light-text);
+}
+
+.footer-about {
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.footer-social {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+}
+
+.social-icon:hover {
+  background-color: var(--highlight-color);
+}
+
+.footer-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.footer-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background-color: var(--highlight-color);
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.footer-link {
+  transition: color 0.3s;
+}
+
+.footer-link:hover {
+  color: var(--highlight-color);
+}
+
+.copyright {
+  margin-top: 3rem;
+  text-align: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.9rem;
+  width: 100%;
+}
+
+  </style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="container navbar-container">
+      <a href="#" class="logo">
+          <img src="images/Urban Threads Logo.png" alt="Urban Threads Logo" class="logo-img" height="20px">
+      </a>
+
+      <ul class="menu">
+          <li><a href="index.html" class="menu-item">Home</a></li>
+          <li><a href="about.html" class="menu-item">About</a></li>
+          <li><a href="shop.html" class="menu-item">Shop</a></li>
+          <li><a href="contact.html" class="menu-item">Contact</a></li>
+      </ul>
+
+      <!-- Cart Icon -->
+      <div class="cart">
+          <a href="cart.html" class="cart-icon">
+              <i class="fas fa-shopping-cart"></i>
+              <span class="cart-count">0</span>
+          </a>
+      </div>
+
+      <div class="menu-toggle" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+      </div>
+  </div>
+</nav>
+<!-- Hero Section -->
+<section class="contact-hero">
+    <div class="container">
+        <h1>Contact Us <i class="fas fa-paper-plane"></i></h1>
+        <p>We'd love to hear from you! Get in touch with us.</p>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact">
+    <div class="container">
+        <div class="contact-wrapper">
+            <!-- Info Section -->
+            <div class="contact-info">
+                <h2>Our Information</h2>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Fashion Street, Mumbai, India</p>
+                <p><i class="fas fa-phone-alt"></i> +91 8356054395</p>
+                <p><i class="fas fa-envelope"></i> support@urbanthreads.com</p>
+                <p>At Urban Threads, we are always here to assist you! Whether you have inquiries about our latest collections, need help with an order, or simply want to share your feedback, our team is just a call or email away.
+                </p>
+                <p>Located in the heart of Mumbai’s fashion district, our headquarters is where creativity meets innovation, ensuring that you always get the trendiest styles with top-notch service. Get in touch—we’d love to hear from you!
+                </p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+            <!-- Form Section -->
+            <div class="contact-form">
+                <h2>Send Us a Message</h2>
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Write your message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+                <div id="form-message"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Google Maps Embed -->
+<section class="map">
+    <div class="container">
+        <h2 class="map-title">Find Us on the Map</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.568887928402!2d72.82620431537415!3d19.18634158703448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b61c05c2f147%3A0xf3c20c6a9e7c5f5a!2sMumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1614752172435!5m2!1sen!2sin" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+</section>
+
+<script>
+    document.getElementById("contact-form").addEventListener("submit", function(event) {
+        event.preventDefault();
+        document.getElementById("form-message").innerHTML = "Your message has been sent successfully!";
+        document.getElementById("form-message").style.color = "green";
+    });
+</script>
+<style>
+/* Stylesheet - styles.css */
+:root {
+    --primary-color: hsl(282, 44%, 47%);
+    --highlight-color: #FF5733;
+    --body-bg: #ffffff;
+    --container-bg: #f9f9f9;
+    --border-radius: 15px;
+}
+
+.contact-hero {
+    background: linear-gradient(135deg, #001F3F, #8E44AD);
+    color: white;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.contact-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+.contact-hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact {
+    background: var(--container-bg);
+    padding: 80px 0;
+}
+
+.contact-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.contact-form, .contact-info {
+    flex: 1;
+    background: white;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contact-info h2 {
+    margin-bottom: 30px;
+}
+
+.contact-info p {
+    margin-bottom: 20px;
+}
+
+.contact-info i {
+    margin-right: 15px;
+    color: var(--highlight-color);
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #f5f5f5;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: var(--highlight-color);
+    color: white;
+}
+
+.contact-form h2 {
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #eee;
+    border-radius: var(--border-radius);
+    font-family: 'Poppins', sans-serif;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border-color: var(--highlight-color);
+    outline: none;
+}
+
+.form-group textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+button.btn {
+    background: var(--highlight-color);
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+button.btn:hover {
+    background: #e64a2e;
+    transform: translateY(-2px);
+}
+
+#form-message {
+    margin-top: 20px;
+    font-weight: 500;
+}
+
+.map {
+    padding: 60px 0 80px;
+}
+
+.map-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+}
+
+.map iframe {
+    width: 100%;
+    height: 450px;
+    border-radius: var(--border-radius);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .contact-wrapper {
+        flex-direction: column;
+    }
+    
+    .contact-hero h1 {
+        font-size: 2.8rem;
+    }
+}
+</style>
+  <!-- Newsletter -->
+  <section class="newsletter">
+    <div class="container">
+      <h2 class="newsletter-title">Join Our Community</h2>
+      <p class="newsletter-text">Sign up for our newsletter and get 10% off your first order, plus access to exclusive offers and style tips.</p>
+      
+      <form class="newsletter-form">
+        <input type="email" class="newsletter-input" placeholder="Your email address">
+        <button type="submit" class="newsletter-btn">Subscribe</button>
+      </form>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <!-- Footer Info & Quick Links in One Row -->
+      <div class="footer-content">
+        <div class="footer-info">
+          <div class="footer-logo">URBAN THREADS</div>
+          <p class="footer-about">
+            Urban Threads is committed to sustainable, stylish fashion designed for the modern individual. 
+            Our collection blends timeless appeal with high-quality craftsmanship, ensuring that every piece 
+            remains a wardrobe essential for years to come.
+          </p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/?" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="https://in.pinterest.com/" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-nav">
+          <h3 class="footer-title">Quick Links</h3>
+          <div class="footer-links">
+            <a href="index.html" class="footer-link">Home</a>
+            <a href="about.html" class="footer-link">About</a>
+            <a href="shop.html" class="footer-link">Shop</a>
+            <a href="contact.html" class="footer-link">Contact Us</a>
+          </div>
+        </div>
+      </div>    
+    </div>
+
+    <div class="copyright">
+      <div class="container">
+        &copy; 2025 Urban Threads. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // Mobile menu toggle
+        const menuToggle = document.querySelector(".menu-toggle");
+        const menu = document.querySelector(".menu");
+
+        menuToggle.addEventListener("click", () => {
+            menu.classList.toggle("active");
+            menuToggle.classList.toggle("menu-active"); // Toggles X animation
+        });
+    });
+</script>
+
+</body>

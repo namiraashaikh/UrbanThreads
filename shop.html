@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Urban Threads | Modern Fashion for All</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <!-- AOS Library (Animate On Scroll) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    
+    :root {
+      --primary-color: hsl(282, 44%, 47%);
+      --accent-color: #27ae60;
+      --highlight-color: #FF5733;
+      --title-color: hsl(0, 0%, 13%);
+      --body-text-color: #2D2D2D;
+      --light-text: #FFFFFF;
+      --body-bg: hsl(0, 0%, 100%);
+      --container-bg: hsl(0, 0%, 93%);
+      --primary-border: hsl(129, 36%, 85%);
+      --alt-border: hsl(113, 15%, 90%);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--body-bg);
+      color: var(--body-text-color);
+      line-height: 1.6;
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    ul {
+      list-style: none;
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    /* Navbar */
+    .navbar {
+      width: 100%;
+      padding: 15px 30px;
+      background-color: var(--body-bg);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+    
+    /* Logo */
+    .logo img {
+      height: 20px;
+      width: auto;
+    }
+    
+    /* Navbar Container */
+    .navbar-container {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      justify-content: space-between;
+    }
+    
+    /* Menu */
+    .menu {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    
+    .menu-item {
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+    
+    .menu-item:hover {
+      color: var(--highlight-color);
+    }
+    
+    /* Underline effect */
+    .menu-item::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--highlight-color);
+      transition: width 0.3s;
+    }
+    
+    .menu-item:hover::after {
+      width: 100%;
+    }
+    
+    /* Icons */
+    .nav-icons {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    
+    .icon {
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+    
+    .icon:hover {
+      color: var(--highlight-color);
+    }
+    
+    /* Cart Icon */
+    .cart-icon {
+      position: relative;
+    }
+    
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background-color: var(--highlight-color);
+      color: var(--light-text);
+      font-size: 0.7rem;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    /* Mobile Menu Button */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 22px;
+      cursor: pointer;
+    }
+    
+    .menu-toggle span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background-color: #000;
+      transition: transform 0.3s, opacity 0.3s, background-color 0.3s;
+    }
+    
+    .menu-toggle:hover span {
+      background-color: var(--highlight-color);
+    }
+    
+    .menu-active .menu-toggle span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .menu-active .menu-toggle span:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .menu-active .menu-toggle span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+        /* Newsletter */
+        .newsletter {
+      padding: 5rem 0;
+      background-color: var(--body-text-color);
+      color: var(--light-text);
+      text-align: center;
+    }
+    
+    .newsletter-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    
+    .newsletter-text {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+    
+    .newsletter-form {
+      display: flex;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    .newsletter-input {
+      flex: 1;
+      padding: 1rem 1.5rem;
+      border: none;
+      border-radius: 30px 0 0 30px;
+      font-family: 'Poppins', sans-serif;
+      outline: none;
+    }
+    
+    .newsletter-btn {
+      padding: 1rem 1.5rem;
+      background-color: var(--accent-color);
+      color: var(--light-text);
+      border: none;
+      border-radius: 0 30px 30px 0;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .newsletter-btn:hover {
+      background-color: #e74e2e;
+    }
+        
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .trust-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .lookbook-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .footer-container {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      
+      .menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--body-bg);
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1rem;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      }
+      
+      .menu.active {
+        display: flex;
+      }
+      
+      .menu-toggle {
+        display: flex;
+      }
+      
+      .search-container {
+        display: none;
+      }
+      
+      .lookbook-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .newsletter-form {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .newsletter-input, 
+      .newsletter-btn {
+        border-radius: 30px;
+        width: 100%;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .trust-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero-content {
+        text-align: center;
+        margin-left: 0;
+        padding: 0 1rem;
+      }
+    }
+    /* Footer */
+.footer {
+  padding: 4rem 0 2rem;
+  background-color: var(--title-color);
+  color: var(--light-text);
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Flexbox for Footer Content */
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1100px;
+  gap: 3rem;
+}
+
+.footer-info {
+  flex: 1;
+  max-width: 50%;
+}
+
+.footer-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--light-text);
+}
+
+.footer-about {
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.footer-social {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+}
+
+.social-icon:hover {
+  background-color: var(--highlight-color);
+}
+
+.footer-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.footer-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background-color: var(--highlight-color);
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.footer-link {
+  transition: color 0.3s;
+}
+
+.footer-link:hover {
+  color: var(--highlight-color);
+}
+
+.copyright {
+  margin-top: 3rem;
+  text-align: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.9rem;
+  width: 100%;
+}
+
+    /* Products Section */
+    .products-section {
+      padding: 2rem 0;
+      background-color: #ffffff;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--title-color);
+    }
+    
+    .filter-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .filter-btn {
+      padding: 0.5rem 1rem;
+      border: none;
+      background-color: var(--highlight-color);
+      color: var(--light-text);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    
+    .filter-btn.active,
+    .filter-btn:hover {
+      background-color: #27ae60;
+    }
+    
+    .products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.product-card {
+  background: var(--body-bg);
+  border: 1px solid var(--alt-border);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Responsive image container */
+.product-image {
+  width: 100%;
+  height: 250px; /* Default height */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures full coverage */
+}
+
+.product-info {
+  padding: 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-info h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--title-color);
+}
+
+.product-info .price {
+  color: var(--highlight-color);
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  background: var(--primary-color);
+  color: var(--light-text);
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  transition: background 0.3s;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.btn:hover {
+  background: #27ae60;
+}
+
+/* Modal Styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 1rem;
+}
+
+.modal-content {
+  background: var(--body-bg);
+  width: 100%;
+  max-width: 600px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.modal-header {
+  background: var(--highlight-color);
+  color: var(--light-text);
+  padding: 1rem;
+  text-align: center;
+}
+
+.modal-body {
+  padding: 1rem;
+}
+
+.modal-close {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  font-size: 1.5rem;
+  color: var(--light-text);
+  cursor: pointer;
+}
+
+/* Updated Modal Image Styles */
+.modal-image-container {
+  width: 100%;
+  height: 500px; /* Set a taller height for portrait style */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.modal-image {
+  height: 100%;       /* Image takes full height of container */
+  width: auto;        /* Width adjusts to maintain aspect ratio */
+  object-fit: contain;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .modal-image-container {
+    height: 400px; /* Slightly smaller height for small screens */
+  }
+}
+
+/* Remove fixed height on mobile to let container adapt */
+@media (max-width: 768px) {
+  .modal-image-container {
+    /* Remove fixed height; rely on max-height: 80vh */
+    /* height: 250px;  <-- Remove this line */
+  }
+}
+
+     /* Cart Overlay */
+  .cart-overlay {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100%;
+    background-color: white;
+    box-shadow: -2px 0 8px rgba(0,0,0,0.1);
+    z-index: 2000;
+    transition: right 0.3s ease;
+    overflow-y: auto;
+  }
+  
+  .cart-overlay.active {
+    right: 0;
+  }
+  
+  .cart-overlay-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .cart-header {
+    padding: 1.5rem;
+    background-color: var(--title-color);
+    color: var(--light-text);
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .cart-header h2 {
+    margin: 0;
+    font-size: 1.4rem;
+  }
+  
+  .close-cart {
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+  
+  .cart-items {
+    flex: 1;
+    padding: 1.5rem;
+    overflow-y: auto;
+  }
+  
+  .cart-item {
+    display: flex;
+    border-bottom: 1px solid var(--alt-border);
+    padding: 1rem 0;
+  }
+  
+  .cart-item-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-right: 1rem;
+    flex-shrink: 0;
+  }
+  
+  .cart-item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .cart-item-details {
+    flex: 1;
+  }
+  
+  .cart-item-name {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  
+  .cart-item-price {
+    color: var(--body-text-color);
+    font-size: 0.9rem;
+  }
+  
+  .cart-item-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5rem;
+  }
+  
+  .quantity-control {
+    display: flex;
+    align-items: center;
+  }
+  
+  .quantity-btn {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--container-bg);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .quantity {
+    margin: 0 0.5rem;
+    font-weight: 600;
+  }
+  
+  .remove-item {
+    color: var(--highlight-color);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  
+  .cart-footer {
+    padding: 1.5rem;
+    background-color: var(--container-bg);
+    border-top: 1px solid var(--alt-border);
+  }
+  
+  .cart-total {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .checkout-btn {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--highlight-color);
+    color: var(--light-text);
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 0.8rem;
+  }
+  
+  .checkout-btn:hover {
+    background-color: #e74e2e;
+  }
+  
+  .continue-btn {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: transparent;
+    color: var(--body-text-color);
+    border: 1px solid var(--body-text-color);
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .continue-btn:hover {
+    background-color: var(--body-text-color);
+    color: var(--light-text);
+  }
+  
+  .empty-cart {
+    text-align: center;
+    padding: 2rem;
+    color: var(--body-text-color);
+  }
+  
+  .empty-cart i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--alt-border);
+  }
+  
+  /* Responsive styles for cart overlay */
+  @media (max-width: 576px) {
+    .cart-overlay {
+      width: 100%;
+      right: -100%;
+    }
+  }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .product-image img {
+        height: 150px;
+      }
+    }
+    .hero {
+  position: relative;
+  height: 100vh;
+  background-image: url('images/shoppghero.jpg'); /* Replace with your image */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 0 2rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #ffffff;
+  text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
+}
+
+.hero-btn {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  background-color: var(--primary-color); /* hsl(282, 44%, 47%) for ESSENTIALS */
+  color: #ffffff;
+  font-weight: 500;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.hero-btn:hover {
+  background-color: #5c168f; /* Darker shade of your primary */
+}
+
+
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <a href="#" class="logo">
+        <img src="images/Urban Threads Logo.png" alt="Urban Threads Logo" class="logo-img" height="20px">
+      </a>
+      <ul class="menu">
+        <li><a href="index.html" class="menu-item">Home</a></li>
+        <li><a href="about.html" class="menu-item">About</a></li>
+        <li><a href="shop.html" class="menu-item">Shop</a></li>
+        <li><a href="contact.html" class="menu-item">Contact</a></li>
+      </ul>
+      <!-- Cart Icon -->
+      <div class="cart">
+        <a href="cart.html" class="cart-icon">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count" id="cartCount">0</span>
+        </a>
+      </div>
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+  <!-- Hero Section -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Discover Your Style</h1>
+    <p>Trendy. Bold. You. Shop the latest collections now.</p>
+  </div>
+</section>
+
+  <!-- Products Section -->
+  <section class="products-section container">
+    <h2 class="section-title">Our Collection</h2>
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-category="men">Men</button>
+      <button class="filter-btn" data-category="women">Women</button>
+    </div>
+    <div id="productsGrid" class="products-grid"></div>
+  </section>
+  
+  <!-- Product Detail Modal -->
+<!-- Product Detail Modal -->
+<div id="productModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <span id="modalClose" class="modal-close">&times;</span>
+      <h2 id="modalTitle">Product Detail</h2>
+    </div>
+    <div class="modal-body" id="modalBody">
+      <!-- Product detail will load here -->
+    </div>
+  </div>
+</div>
+
+  
+  <!-- Newsletter -->
+  <section class="newsletter">
+    <div class="container">
+      <h2 class="newsletter-title">Join Our Community</h2>
+      <p class="newsletter-text">Sign up for our newsletter and get 10% off your first order, plus access to exclusive offers and style tips.</p>
+      <form class="newsletter-form">
+        <input type="email" class="newsletter-input" placeholder="Your email address">
+        <button type="submit" class="newsletter-btn">Subscribe</button>
+      </form>
+    </div>
+  </section>
+  
+  <!-- Footer (Original Styling) -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-content">
+        <div class="footer-info">
+          <div class="footer-logo">URBAN THREADS</div>
+          <p class="footer-about">
+            Urban Threads is committed to sustainable, stylish fashion designed for the modern individual. Our collection blends timeless appeal with high-quality craftsmanship.
+          </p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/?" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="https://in.pinterest.com/" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+          </div>
+        </div>
+        <div class="footer-nav">
+          <h3 class="footer-title">Quick Links</h3>
+          <div class="footer-links">
+            <a href="index.html" class="footer-link">Home</a>
+            <a href="about.html" class="footer-link">About</a>
+            <a href="shop.html" class="footer-link">Shop</a>
+            <a href="contact.html" class="footer-link">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <div class="container">
+        &copy; 2025 Urban Threads. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Overlay -->
+<div id="cartOverlay" class="cart-overlay">
+  <div class="cart-overlay-content">
+    <div class="cart-header">
+      <h2>Your Shopping Cart</h2>
+      <span id="closeCart" class="close-cart">&times;</span>
+    </div>
+    <div id="cartItems" class="cart-items">
+      <!-- Cart items will be displayed here -->
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total:</span>
+        <span id="cartTotal">$0.00</span>
+      </div>
+      <button id="checkoutBtn" class="checkout-btn">Proceed to Checkout</button >
+      <button id="continueShoppingBtn" class="continue-btn">Continue Shopping</button>
+    </div>
+  </div>
+</div>
+  
+  <!-- Scripts -->
+  <script>
+    // Mobile Menu Toggle
+    function toggleMenu() {
+      const menu = document.querySelector(".menu");
+      const menuToggle = document.querySelector(".menu-toggle");
+      menu.classList.toggle("active");
+      menuToggle.classList.toggle("menu-active");
+    }
+    
+    /* -----------------------
+       Product Data & Cart
+    ----------------------- */
+    // Product Data: 5 Tops & 5 Bottoms for Men and Women
+    const products = {
+      men: {
+        tops: [
+          {
+            id: 'm-top-1',
+            name: 'Classic Black Shirt',
+            price: 29.99,
+            image: 'https://static.zara.net/assets/public/ed94/5755/3ece48d895d9/ad4b91e68db1/07545710529-e1/07545710529-e1.jpg?ts=1737995288967&w=453',
+            description: 'A comfortable and versatile cotton shirt for everyday wear.'
+          },
+          {
+            id: 'm-top-2',
+            name: 'Striped Polo Jumper ',
+            price: 49.99,
+            image: 'https://static.zara.net/assets/public/b876/6601/beeb4eb3bde8/39e86b0148a4/00526320066-e1/00526320066-e1.jpg?ts=1723791615152&w=330',
+            description: 'Timeless Oxford shirt with a modern slim fit design.'
+          },
+          {
+            id: 'm-top-3',
+            name: 'Red Quarter Zip Hoodie',
+            price: 89.99,
+            image: 'https://static.zara.net/assets/public/10b7/fc03/10764b039ec8/4e0b911b00d7/04087411600-e1/04087411600-e1.jpg?ts=1737386897020&w=330',
+            description: 'Classic denim jacket with a vintage look and multiple pockets.'
+          },
+          {
+            id: 'm-top-4',
+            name: 'Textured Slogan T-Shirt',
+            price: 79.99,
+            image: 'https://static.zara.net/assets/public/b5f4/c299/5db748c4afe0/548a88c5a42d/06224442712-e1/06224442712-e1.jpg?ts=1740671796480&w=330',
+            description: 'Premium sweater crafted from fine Merino wool.'
+          },
+          {
+            id: 'm-top-5',
+            name: 'Pray Print T-Shirt',
+            price: 39.99,
+            image: 'https://static.zara.net/assets/public/c235/cc42/9cd4414abb44/6e9bad2c60e6/04090403700-e1/04090403700-e1.jpg?ts=1742471016844&w=330',
+            description: 'Breathable polo shirt with a classic striped pattern.'
+          }
+        ],
+        bottoms: [
+          {
+            id: 'm-jacket-1',
+            name: 'Biker Leather Jacket',
+            price: 59.99,
+            image: 'https://static.zara.net/assets/public/92c4/a8b3/a2d94923b934/f174547f555a/04391400800-e1/04391400800-e1.jpg?ts=1725355672344&w=330',
+            description: 'Modern slim fit chinos for a polished look.'
+          },
+          {
+            id: 'm-bottom-2',
+            name: 'Contrast Color Jacket',
+            price: 69.99,
+            image: 'https://static.zara.net/assets/public/01c0/fd1a/1a314669a0ca/1ba9b3f19674/04302408420-e1/04302408420-e1.jpg?ts=1740133364075&w=330',
+            description: 'Comfortable jeans with a relaxed fit and classic design.'
+          },
+          {
+            id: 'm-bottom-3',
+            name: 'Slim Fit Blazer',
+            price: 49.99,
+            image: 'https://static.zara.net/assets/public/46d8/e129/d9fc4963a646/5f3f367e53ce/04425254081-e1/04425254081-e1.jpg?ts=1740474162692&w=330',
+            description: 'Lightweight joggers ideal for workouts and leisure.'
+          },
+          {
+            id: 'm-bottom-4',
+            name: 'Regular Cotton Jacket',
+            price: 45.99,
+            image: 'https://static.zara.net/assets/public/e5f1/d803/d1b443d38955/fc3231aafb31/04725343400-e1/04725343400-e1.jpg?ts=1743520046991&w=330',
+            description: 'Practical cargo shorts featuring multiple pockets.'
+          },
+          {
+            id: 'm-bottom-5',
+            name: 'Patchwork Jacket',
+            price: 89.99,
+            image: 'https://static.zara.net/assets/public/a60d/0d53/f86d4caba535/658af271cbe3/00881440251-e1/00881440251-e1.jpg?ts=1743772480864&w=330',
+            description: 'Elegant dress pants perfect for formal occasions.'
+          }
+        ]
+      },
+      women: {
+        tops: [
+          {
+            id: 'w-top-1',
+            name: 'Tank Top Stitched Sleeve',
+            price: 45.99,
+            image: 'https://static.zara.net/assets/public/f4a4/647f/8c6e4596a44b/17a3426ad94a/01058159800-e1/01058159800-e1.jpg?ts=1743669244954&w=750',
+            description: 'Light and breezy blouse featuring a delicate floral print.'
+          },
+          {
+            id: 'w-top-2',
+            name: 'Fitted T-Shirt',
+            price: 39.99,
+            image: 'https://static.zara.net/assets/public/5fff/ef2e/f00e48e7bc70/25058f4bf229/04174378104-e1/04174378104-e1.jpg?ts=1740395735760&w=1126',
+            description: 'Sleek fitted turtleneck ideal for layering during cool days.'
+          },
+          {
+            id: 'w-top-3',
+            name: 'Classic Brown T-Shirt',
+            price: 69.99,
+            image: 'https://static.zara.net/assets/public/3f1d/b7c2/63594c8c9ff0/10a6b0f38fb9/04174325700-e1/04174325700-e1.jpg?ts=1741865657525&w=750',
+            description: 'Cozy oversized sweater with a chunky knit texture.'
+          },
+          {
+            id: 'w-top-4',
+            name: 'Cropped Stretched T-Shirt',
+            price: 55.99,
+            image: 'https://static.zara.net/assets/public/0642/e944/cf444f96b5b2/bb1d62cee5fb/02335259300-e1/02335259300-e1.jpg?ts=1741012125780&w=750',
+            description: 'Timeless white button-up offering a crisp, tailored look.'
+          },
+          {
+            id: 'w-top-5',
+            name: 'Faded T-Shirt',
+            price: 79.99,
+            image: 'https://static.zara.net/assets/public/9f47/7265/159b4701ba3d/4b779daf812d/00085307807-e1/00085307807-e1.jpg?ts=1736769481280&w=750',
+            description: 'Trendy cropped denim jacket with modern distressed details.'
+          }
+        ],
+        bottoms: [
+          {
+            id: 'w-bottom-1',
+            name: 'Costa Rica T-Shirt',
+            price: 65.99,
+            image: 'https://static.zara.net/assets/public/bc71/1353/4d0745258012/a3cc9f1a20b6/00085172450-e1/00085172450-e1.jpg?ts=1740042389032&w=750',
+            description: 'Figure-flattering high-waisted skinny jeans for everyday style.'
+          },
+          {
+            id: 'w-bottom-2',
+            name: 'Yale Varsity T-Shirt',
+            price: 59.99,
+            image: 'https://static.zara.net/assets/public/07e4/5892/f2dc47a7b702/50b5a37b5687/04174310250-e1/04174310250-e1.jpg?ts=1738067192896&w=750',
+            description: 'Elegant A-line skirt that enhances every silhouette.'
+          },
+          {
+            id: 'w-bottom-3',
+            name: 'Printed Ruffles Blouse',
+            price: 75.99,
+            image: 'https://static.zara.net/assets/public/5379/cfe1/1fab4e2dbb75/a14579d791ed/05029086046-e1/05029086046-e1.jpg?ts=1742490425727&w=750',
+            description: 'Sophisticated trousers with a relaxed, wide-leg fit.'
+          },
+          {
+            id: 'w-bottom-4',
+            name: 'Blue Striped Shirt',
+            price: 69.99,
+            image: 'https://static.zara.net/assets/public/0d2b/5981/0c7e4cac96f4/b069ac2d075d/08372061044-e1/08372061044-e1.jpg?ts=1742982399663&w=750',
+            description: 'Relaxed mom jeans with a stylish vintage wash.'
+          },
+          {
+            id: 'w-bottom-5',
+            name: 'Pink Fitted Top',
+            price: 49.99,
+            image: 'https://static.zara.net/assets/public/18f1/c79b/4bfb47c58f6c/1fe701e78987/02183043640-e1/02183043640-e1.jpg?ts=1740732011510&w=750',
+            description: 'High-performance leggings crafted with moisture-wicking fabric.'
+          }
+        ]
+      }
+    };
+    
+    // Global cart to track added products
+    let Cart = [];
+    let currentCategory = 'men';
+    
+    // Render products based on the current category
+    function renderProducts() {
+      const productsGrid = document.getElementById('productsGrid');
+      productsGrid.innerHTML = '';
+      const categoryData = products[currentCategory];
+      // Combine tops & bottoms
+      const allProducts = [...categoryData.tops, ...categoryData.bottoms];
+      
+      allProducts.forEach(product => {
+        const productCard = document.createElement('div');
+        productCard.classList.add('product-card');
+        productCard.setAttribute('data-id', product.id);
+        productCard.innerHTML = `
+          <div class="product-image">
+            <img src="${product.image}" alt="${product.name}">
+          </div>
+          <div class="product-info">
+            <h3>${product.name}</h3>
+            <p class="price">$${product.price.toFixed(2)}</p>
+            <div>
+              <button class="btn view-detail" data-id="${product.id}">View Detail</button>
+              <button class="btn add-to-cart" data-id="${product.id}">Add to Cart</button>
+            </div>
+          </div>
+        `;
+        productsGrid.appendChild(productCard);
+      });
+    }
+    
+    // Open product detail modal
+    function openProductModal(productId) {
+  const product = findProductById(productId);
+  if (!product) return;
+  
+  // Set the modal title
+  document.getElementById('modalTitle').innerText = product.name;
+  
+  // Set modal body with product details and a size dropdown
+  document.getElementById('modalBody').innerHTML = `
+    <img src="${product.image}" alt="${product.name}" style="width:100%; max-height:300px; object-fit:cover; margin-bottom:1rem; border-radius:8px;">
+    <p>${product.description}</p>
+    <p class="price" style="margin-top:1rem; font-weight:bold;">Price: $${product.price.toFixed(2)}</p>
+    <div class="size-selection" style="margin:1rem 0;">
+      <label for="sizeSelect">Select Size: </label>
+      <select id="sizeSelect">
+         <option value="">Select</option>
+         <option value="XS">XS</option>
+         <option value="S">S</option>
+         <option value="M">M</option>
+         <option value="L">L</option>
+         <option value="XL">XL</option>
+      </select>
+    </div>
+    <button class="btn add-to-cart" data-id="${product.id}" style="margin-top:1rem;">Add to Cart</button>
+  `;
+  
+  // Show the modal
+  document.getElementById('productModal').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+  
+  // Attach event to "Add to Cart" button in the modal
+  const modalAddBtn = document.querySelector('.modal-body .add-to-cart');
+  modalAddBtn.addEventListener('click', function() {
+    const selectedSize = document.getElementById('sizeSelect').value;
+    if (!selectedSize) {
+      alert("Please select a size");
+      return;
+    }
+    addToCart(product.id, selectedSize);
+    closeProductModal();
+  });
+}
+
+// Close modal function
+function closeProductModal() {
+  document.getElementById('productModal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+// Bind modal close button
+document.getElementById('modalClose').addEventListener('click', closeProductModal);
+
+    
+    // Find product by ID (from all categories)
+    function findProductById(productId) {
+      const allProducts = [
+        ...products.men.tops,
+        ...products.men.bottoms,
+        ...products.women.tops,
+        ...products.women.bottoms
+      ];
+      return allProducts.find(p => p.id === productId);
+    }
+    
+    // Add product to cart and update cart count
+    function addToCart(productId, size) {
+  const product = findProductById(productId);
+  if (!product) return;
+  
+  // Here you can extend your cart logic to handle the selected size.
+  // For simplicity, we push an object containing id, name, price, and size.
+  cart.push({
+    id: product.id,
+    name: product.name,
+    price: product.price,
+    size: size,
+    quantity: 1
+  });
+  
+  updateCartCount();
+  showToast(`${product.name} (${size}) added to cart!`);
+}
+
+    // Update the cart icon count
+    function updateCartCount() {
+      document.getElementById('cartCount').innerText = cart.length;
+    }
+    
+    // Bind UI events
+    function bindUIActions() {
+      // Filter buttons
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          currentCategory = this.dataset.category;
+          renderProducts();
+        });
+      });
+      
+      // Delegate click events in products grid
+      document.getElementById('productsGrid').addEventListener('click', function(e) {
+        const target = e.target;
+        const productId = target.dataset.id;
+        if (target.classList.contains('view-detail')) {
+          openProductModal(productId);
+        }
+        if (target.classList.contains('add-to-cart')) {
+          addToCart(productId);
+        }
+      });
+      
+      // Modal close button
+      document.getElementById('modalClose').addEventListener('click', function() {
+        document.getElementById('productModal').style.display = 'none';
+      });
+    }
+    
+    // Initialize shop page
+    function initShop() {
+      renderProducts();
+      bindUIActions();
+      updateCartCount();
+    }
+    
+    document.addEventListener("DOMContentLoaded", initShop);
+  </script>
+  <!-- Finally, add this JavaScript code at the end of your script section -->
+<script>
+ // Enhanced Cart Functionality
+let cart = [];
+
+// Toggle Cart Overlay
+function toggleCart(e) {
+  if (e) e.preventDefault();
+  document.getElementById('cartOverlay').classList.toggle('active');
+}
+
+// Render Cart Items
+function renderCartItems() {
+  const cartItemsEl = document.getElementById('cartItems');
+  const cartTotalEl = document.getElementById('cartTotal');
+  
+  if (cart.length === 0) {
+    cartItemsEl.innerHTML = `
+      <div class="empty-cart">
+        <i class="fas fa-shopping-bag"></i>
+        <p>Your cart is empty</p>
+        <p>Browse our collection and discover something you'll love.</p>
+      </div>
+    `;
+    cartTotalEl.textContent = '$0.00';
+    return;
+  }
+  
+  // Group items by ID to handle quantity
+  const cartMap = cart.reduce((acc, item) => {
+    if (!acc[item.id]) {
+      acc[item.id] = {
+        ...item,
+        quantity: 0
+      };
+    }
+    acc[item.id].quantity += 1;
+    return acc;
+  }, {});
+  
+  // Convert back to array
+  const uniqueCartItems = Object.values(cartMap);
+  
+  // Calculate total
+  const total = uniqueCartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  
+  // Render items
+  cartItemsEl.innerHTML = uniqueCartItems.map(item => `
+    <div class="cart-item" data-id="${item.id}">
+      <div class="cart-item-image">
+        <img src="${item.image || 'https://via.placeholder.com/80x80?text=Product'}" alt="${item.name}">
+      </div>
+      <div class="cart-item-details">
+        <div class="cart-item-name">${item.name}</div>
+        <div class="cart-item-price">$${item.price.toFixed(2)}</div>
+        <div class="cart-item-actions">
+          <div class="quantity-control">
+            <button class="quantity-btn decrease-qty" data-id="${item.id}">-</button>
+            <span class="quantity">${item.quantity}</span>
+            <button class="quantity-btn increase-qty" data-id="${item.id}">+</button>
+          </div>
+          <button class="remove-item" data-id="${item.id}">Remove</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+  
+  cartTotalEl.textContent = `$${total.toFixed(2)}`;
+  
+  // Bind cart item events
+  bindCartItemEvents();
+}
+
+// Bind events for cart items
+function bindCartItemEvents() {
+  // Increase quantity
+  document.querySelectorAll('.increase-qty').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const productId = this.dataset.id;
+      const product = findProductById(productId);
+      if (product) {
+        cart.push(product);
+        updateCartCount();
+        renderCartItems();
+      }
+    });
+  });
+  
+  // Decrease quantity
+  document.querySelectorAll('.decrease-qty').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const productId = this.dataset.id;
+      const itemIndex = cart.findIndex(item => item.id === productId);
+      if (itemIndex !== -1) {
+        cart.splice(itemIndex, 1);
+        updateCartCount();
+        renderCartItems();
+      }
+    });
+  });
+  
+  // Remove item
+  document.querySelectorAll('.remove-item').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const productId = this.dataset.id;
+      cart = cart.filter(item => item.id !== productId);
+      updateCartCount();
+      renderCartItems();
+    });
+  });
+}
+
+// Update the cart icon count
+function updateCartCount() {
+  document.getElementById('cartCount').innerText = cart.length;
+}
+
+// Add product to cart and update cart count
+function addToCart(productId) {
+  const product = findProductById(productId);
+  if (product) {
+    cart.push(product);
+    updateCartCount();
+    renderCartItems();
+    
+    // Show cart overlay
+    document.getElementById('cartOverlay').classList.add('active');
+    
+    // Optional: Add a toast notification
+    showToast(`${product.name} added to cart!`);
+  }
+}
+
+// Toast notification function
+function showToast(message) {
+  // Create toast element if it doesn't exist
+  let toast = document.getElementById('toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'toast';
+    toast.style.cssText = `
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--highlight-color);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 4px;
+      z-index: 3000;
+      transition: opacity 0.3s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    `;
+    document.body.appendChild(toast);
+  }
+  
+  // Set message and show toast
+  toast.textContent = message;
+  toast.style.opacity = '1';
+  
+  // Hide toast after 3 seconds
+  setTimeout(() => {
+    toast.style.opacity = '0';
+  }, 3000);
+}
+
+// Initialize shop page - Main initialization function
+function initShop() {
+  renderProducts();
+  bindUIActions();
+  updateCartCount();
+  initCart();
+  
+  // Add event delegation to modal for add to cart clicks
+  document.getElementById('productModal').addEventListener('click', function(e) {
+    if (e.target.classList.contains('add-to-cart')) {
+      const productId = e.target.dataset.id;
+      addToCart(productId);
+    }
+  });
+}
+
+// Initialize cart functionality
+function initCart() {
+  // Add click event to cart icon to toggle cart overlay
+  document.querySelector('.cart-icon').addEventListener('click', toggleCart);
+  
+  // Close cart overlay
+  document.getElementById('closeCart').addEventListener('click', toggleCart);
+  
+  // Continue shopping button
+  document.getElementById('continueShoppingBtn').addEventListener('click', toggleCart);
+  
+  // Checkout button
+  document.getElementById('checkoutBtn').addEventListener('click', function() {
+    if (cart.length > 0) {
+      // Here you would typically redirect to checkout page
+      alert('Proceeding to checkout...');
+      // window.location.href = 'checkout.html';
+    } else {
+      showToast('Your cart is empty');
+    }
+  });
+  
+  // Initialize empty cart view
+  renderCartItems();
+}
+
+// Call initialization when DOM is loaded
+document.addEventListener("DOMContentLoaded", initShop);
+</script>
+  
+  <!-- AOS Library JS (optional for scroll animations) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+</html>
